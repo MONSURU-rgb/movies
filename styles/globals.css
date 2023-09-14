@@ -3,25 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --gray-300: #d1d5db;
+  --rose-700: #be123c;
+  --gray-900: #111827;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.search-input {
+  border: 2px solid var(--gray-300);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.mantine-Chip-label {
+  color: red !important;
 }
+
+/* .movie-props {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
+} */
