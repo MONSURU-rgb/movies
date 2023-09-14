@@ -17,10 +17,11 @@ import axios from "axios";
 import Link from "next/link";
 import { useDebouncedValue } from "@mantine/hooks";
 
-interface MovieResults {
+export interface MovieResults {
   adult: boolean;
   backdrop_path: string;
   genre_ids: [number, number];
+  name: string;
   id: number;
   original_language: string;
   original_title: string;
@@ -34,7 +35,7 @@ interface MovieResults {
   vote_count: number;
 }
 
-interface MovieData {
+export interface MovieData {
   page: number;
   results: MovieResults[];
   total_pages: number;
@@ -209,53 +210,56 @@ export function MoviesSection() {
         </button>
       </article>
       <section className="grid movie-props grid-cols-[repeat(3,_1fr)] max-[680px]:grid-cols-[repeat(2,_1fr)] max-[434px]:grid-cols-[1fr] gap-[clamp(36px,3.4vw,50px)]">
-        {movies.map(({ backdrop_path, release_date, title, overview, id }) => (
-          <section
-            key={id}
-            className="card relative w-full max-[434px]:!w-full"
-            data-testid="movie-card">
-            <Link
+        {movies.map(
+          ({ backdrop_path, release_date, title, overview, id, name }) => (
+            <section
+              key={id}
+              className="card relative w-full max-[434px]:!w-full"
+              data-testid="movie-card">
+              {/* <Link
               href={{
                 pathname: `/movie/${id}`,
-              }}>
-              <figure>
+              }}
+              passHref={true}> */}
+              <a href={`/movie/${id}`}>
                 <img
                   src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
                   alt="movie image"
                   className="relative h-[clamp(250px,23vw,370px)] object-cover"
                 />
-              </figure>
-            </Link>
-            <article className="absolute top-[clamp(15px,1.4vw,20px)] px-[clamp(10px,1vw,16px)] flex justify-between items-center w-full">
-              <span
-                className="uppercase text-[var(--gray-900)] text-[12px] font-bold rounded-xl p-[3px_8px] whitespace-nowrap h-fit"
-                style={{
-                  background: "rgba(243, 244, 246, 0.5)",
-                  backdropFilter: "blur(1px)",
-                }}>
-                TV Series
-              </span>
-              <Favorite />
-            </article>
+              </a>
+              {/* </Link> */}
+              <article className="absolute top-[clamp(15px,1.4vw,20px)] px-[clamp(10px,1vw,16px)] flex justify-between items-center w-full">
+                <span
+                  className="uppercase text-[var(--gray-900)] text-[12px] font-bold rounded-xl p-[3px_8px] whitespace-nowrap h-fit"
+                  style={{
+                    background: "rgba(243, 244, 246, 0.5)",
+                    backdropFilter: "blur(1px)",
+                  }}>
+                  TV Series
+                </span>
+                <Favorite />
+              </article>
 
-            <article className="pt-[12px] flex flex-col gap-[12px]">
-              <h3
-                className="text-[var(--gray-400)] text-[12px] font-bold"
-                data-testid="movie-release-date">
-                {release_date}
-              </h3>
-              <h2
-                className="text-[var(--gray-900)] text-[clamp(12px,1.2vw,18px)] font-bold"
-                data-testid="movie-title">
-                {title}
-              </h2>
-              <IMDB color="[#111827]" />
-              <h3 className="text-[var(--gray-400)] text-[12px] font-bold">
-                {overview}
-              </h3>
-            </article>
-          </section>
-        ))}
+              <article className="pt-[12px] flex flex-col gap-[12px]">
+                <h3
+                  className="text-[var(--gray-400)] text-[12px] font-bold"
+                  data-testid="movie-release-date">
+                  {release_date}
+                </h3>
+                <h2
+                  className="text-[var(--gray-900)] text-[clamp(12px,1.2vw,18px)] font-bold"
+                  data-testid="movie-title">
+                  {title}
+                </h2>
+                <IMDB color="[#111827]" />
+                <h3 className="text-[var(--gray-400)] text-[12px] font-bold">
+                  {overview}
+                </h3>
+              </article>
+            </section>
+          )
+        )}
       </section>
 
       <footer className="pt-[clamp(60px,9.2vw,147px)] flex flex-col gap-[clamp(24px,2.2vw,36px)] justify-center items-center pb-[clamp(48px,6vw,72px)]">

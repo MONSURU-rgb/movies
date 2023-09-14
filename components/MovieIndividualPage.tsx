@@ -6,10 +6,11 @@ import { Tv } from "./icons/tv";
 import Upcoming from "./icons/upcoming";
 import { Logout } from "iconsax-react";
 import { Aside } from "./aside";
-import { Main } from "./main";
+// import { Main } from "./main";
 import { useRouter } from "next/router";
+import Main from "@/pages";
 
-interface MovieService {
+export interface MovieService {
   icon: ReactElement;
   title: string;
 }
@@ -44,7 +45,7 @@ function MovieIndividualPage() {
   const id = query.id;
 
   return (
-    <div className="grid grid-cols-[clamp(130px,16vw,226px)_1fr] font-[Poppins]">
+    <div className="grid grid-cols-[clamp(130px,16vw,226px)_1fr] font-[Poppins] max-[960px]:grid-cols-[1fr]">
       <Aside />
       <Main />
     </div>

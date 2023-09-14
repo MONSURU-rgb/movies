@@ -1,13 +1,36 @@
 import React, { useState } from "react";
 import { Logout } from "iconsax-react";
 import Image from "next/image";
-import { listItems } from "./MovieIndividualPage";
+import { MovieService, listItems } from "./MovieIndividualPage";
+import { Home } from "./icons/home";
+import { Movie } from "./icons/movies";
+import { Tv } from "./icons/tv";
+import Upcoming from "./icons/upcoming";
 
 export function Aside() {
   const [active, setIsActive] = useState<boolean>(false);
+
+  const listItems: MovieService[] = [
+    {
+      icon: <Home />,
+      title: "Home",
+    },
+    {
+      icon: <Movie />,
+      title: "Movies",
+    },
+    {
+      icon: <Tv />,
+      title: "TV Series",
+    },
+    {
+      icon: <Upcoming />,
+      title: "Upcoming",
+    },
+  ];
   return (
     <aside
-      className="flex flex-col justify-between pt-[clamp(32px,3.4vw,52px)] pb-[clamp(44px,4.4vw,69px)] px-[clamp(10px,1.3vw,20px)]"
+      className="flex flex-col justify-between pt-[clamp(32px,3.4vw,52px)] pb-[clamp(44px,4.4vw,69px)] px-[clamp(10px,1.3vw,20px)] max-[960px]:!hidden"
       style={{
         borderRadius: "0px 45px 45px 0px",
         border: "1px solid rgba(0, 0, 0, 0.30)",
