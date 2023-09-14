@@ -15,6 +15,7 @@ import { useQuery } from "react-query";
 import Image from "next/image";
 import axios from "axios";
 import Link from "next/link";
+import { useDebouncedValue } from "@mantine/hooks";
 
 interface MovieResults {
   adult: boolean;
@@ -52,11 +53,14 @@ export const axiosInstance = axios.create({
 
 function Header() {
   const [search, setSearch] = useState<string>("");
+  const [debounced] = useDebouncedValue(search, 500);
+
+  //debouncing
 
   const { data, isSuccess, isLoading } = useQuery({
     queryFn: () =>
-      axiosInstance.get<MovieData>(`3/search/movie?query=${search}`),
-    queryKey: [search],
+      axiosInstance.get<MovieData>(`3/search/movie?query=${debounced}`),
+    queryKey: [debounced],
     enabled: true,
     select: ({ data }) => {
       const movies = data.results?.sort((a, b) => b.popularity - a.popularity);
