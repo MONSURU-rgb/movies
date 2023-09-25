@@ -11,6 +11,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import { Burger } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import Image from "next/image";
 
 dayjs.extend(utc);
 
@@ -64,12 +65,11 @@ export default function File() {
                 backdropFilter: "blur(2px)",
                 clipPath: "circle(40%)",
               }}>
-              <img
+              <Image
                 src="/images/Play.png"
                 alt="individual movie image"
-                width={54}
-                height={54}
-                className="aspect-[1/1]"
+                fill
+                className="!relative aspect-[1/1] w-[54px] h-[54px]"
               />
             </figure>
             <h3
