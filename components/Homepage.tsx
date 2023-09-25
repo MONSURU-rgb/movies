@@ -69,8 +69,6 @@ function Header() {
     },
   });
 
-  console.log(data);
-
   return (
     <header className="flex justify-between flex-wrap max-[375px]:flex-col max-[375px]:gap-2">
       <figure className="relative w-[clamp(98px,11.6vw,186px)] h-[clamp(32px,3.1vw,50px)]">
@@ -187,8 +185,6 @@ export function MoviesSection() {
   }, [isSuccess, isLoading]);
 
   const movies = data?.slice(0, count) ?? [];
-
-  console.log(movies);
 
   const handleShowMore = () => {
     setCount((count) => movies.length + count);
