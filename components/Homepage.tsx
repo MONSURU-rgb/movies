@@ -221,7 +221,8 @@ export function MoviesSection() {
                 <Image
                   src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
                   alt="movie image"
-                  className="!relative h-[clamp(250px,23vw,370px)] object-cover"
+                  fill
+                  className="!relative h-[clamp(250px,23vw,300px)] object-cover"
                 />
               </a>
               {/* </Link> */}

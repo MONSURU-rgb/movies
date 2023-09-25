@@ -52,7 +52,9 @@ export default function File() {
           className="relative w-full h-[60vh] bg-[url(/images/MovieIndividual.png)] bg-no-repeat bg-cover bg-center grid place-content-center"
           style={{
             clipPath: "inset(20px 10px 20px 10px round 10px)",
-            background: `https://image.tmdb.org/t/p/original/${data?.data?.poster_path}`,
+            background:
+              "url(`https://image.tmdb.org/t/p/original/${data?.data?.poster_path}`)",
+            width: "100%",
           }}>
           <article>
             <figure
