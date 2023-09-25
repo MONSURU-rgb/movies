@@ -218,10 +218,10 @@ export function MoviesSection() {
               }}
               passHref={true}> */}
               <a href={`/movie/${id}`}>
-                <img
+                <Image
                   src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
                   alt="movie image"
-                  className="relative h-[clamp(250px,23vw,370px)] object-cover"
+                  className="!relative h-[clamp(250px,23vw,370px)] object-cover"
                 />
               </a>
               {/* </Link> */}

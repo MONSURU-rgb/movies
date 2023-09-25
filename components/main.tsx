@@ -37,20 +37,23 @@ export function MainSideBar() {
       <div
         className="h-full w-full mt-[12px] !rounded-[10px] flex gap-1 min-h-[120px]"
         style={{ clipPath: "inset(20px 10px 20px 10px round 10px)" }}>
-        <img
+        <Image
           src="/images/MovieIndividual.png"
           alt="Movie Individual"
-          className="w-1/3 object-cover"
+          fill
+          className="!relative w-1/3 object-cover"
         />
-        <img
+        <Image
           src="/images/MovieIndividual.png"
           alt="Movie Individual"
-          className="w-1/3 object-cover"
+          fill
+          className="!relative w-1/3 object-cover"
         />
-        <img
+        <Image
           src="/images/MovieIndividual.png"
           alt="Movie Individual"
-          className="w-1/3 object-cover"
+          fill
+          className="!relative w-1/3 object-cover"
         />
       </div>
     </div>
